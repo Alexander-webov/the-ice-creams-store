@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/footer/Footer";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={`${archivo.className} antialiased bg-white`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -7,3 +7,29 @@
 .bg-wave {
   background-image: url('../public/wave-bg.png');
 }
+
+.bg-section2 {
+  background-image: url('../public/Section2.png');
+}
+
+.bg-section-instagram {
+  background-image: url('../public/Section-instagram.png');
+}
+
+.bg-footer {
+  background-image: url('../public/footer-bg.png');
+}
+
+.bg-title-section {
+  background-image: url('../public/main-bg.png');
+}
+
+
+/* slider Favorites */
+.sliderFavorites .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
+  bottom: 0;
+}
+
+.sliderFavorites .swiper-wrapper {
+  margin-bottom: 40px;
+}
