@@ -1,4 +1,5 @@
 import { prisma } from "@/app/lib/prisma";
+import { redirect } from "next/navigation";
 
 //Products
 export async function getAllProducts() {
@@ -22,4 +23,21 @@ export async function getAllPosts() {
     orderBy: { createdAt: "desc" },
     take: 10,
   });
+}
+
+// CONTACT FORM
+export async function createContactFormData(formData: FormData) {
+  "use server";
+  const firstName = formData.get("firstName") as string | null;
+  const lastName = formData.get("lastName") as string | null;
+  const email = formData.get("email") as string | null;
+  const phone = formData.get("phone") as string | null;
+  const message = formData.get("message") as string | null;
+  if (!firstName || !lastName || !phone || !email || !message) {
+    redirect("/contact?error=missing-fields");
+  }
+  await prisma.contactForm.create({
+    data: { firstName, lastName, email, phone, message },
+  });
+  redirect("/contact?success=1");
 }

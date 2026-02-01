@@ -4,6 +4,8 @@ import { prisma } from "@/app/lib/prisma";
 import { getFavoriteProducts } from "@/app/utils/actions";
 import Image from "next/image";
 import iconStart from "@/public/icons/start.png";
+import NotFoundPage from "./NotFoundPage";
+
 async function Post({ params }: { params: Promise<{ id: string }> }) {
   //Products for AD
   const items = await getFavoriteProducts();
@@ -12,7 +14,7 @@ async function Post({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const post = await prisma.posts.findUnique({ where: { id: id } });
 
-  if (!post) return <main>Not found</main>;
+  if (!post) return <NotFoundPage />;
   return (
     <main className="mb-20">
       <Container>
