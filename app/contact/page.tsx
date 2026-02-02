@@ -16,7 +16,7 @@ const berkshireSwash = Berkshire_Swash({
 });
 function ContactUs() {
   return (
-    <main className="mb-40">
+    <main className="mb-40 ">
       <TitleSection titlePage="Contact US" />
       <div>
         <Container>

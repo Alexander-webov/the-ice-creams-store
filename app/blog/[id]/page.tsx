@@ -9,7 +9,6 @@ import NotFoundPage from "./NotFoundPage";
 async function Post({ params }: { params: Promise<{ id: string }> }) {
   //Products for AD
   const items = await getFavoriteProducts();
-  console.log(items);
   //Get SINGLE post
   const { id } = await params;
   const post = await prisma.posts.findUnique({ where: { id: id } });

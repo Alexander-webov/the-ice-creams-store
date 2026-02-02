@@ -4,7 +4,7 @@ import Link from "next/link";
 
 async function Posts() {
   const posts = await getAllPosts();
-  console.log(posts);
+
   return (
     <div className="flex gap-x-6 gap-y-15 flex-wrap justify-center">
       {posts?.map((post) => (

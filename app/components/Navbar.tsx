@@ -31,7 +31,7 @@ function Navbar() {
               <Link href="/">About</Link>
             </li>
             <li>
-              <Link href="/">Faq</Link>
+              <Link href="/faq">Faq</Link>
             </li>
             <ul className="flex gap-x-7 ">
               <li>
