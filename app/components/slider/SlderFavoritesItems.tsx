@@ -26,7 +26,7 @@ function Slider({ items }: { items: Product[] }) {
         {items.map((item) => (
           <SwiperSlide
             key={item.id}
-            className="bg-white rounded-2xl min-h-[415px] h-full p-4 flex flex-col justify-between"
+            className="bg-white rounded-2xl min-h-[415px] h-full p-4 flex flex-col justify-between shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-500 ease-out"
           >
             <div className="flex justify-center">
               <Image

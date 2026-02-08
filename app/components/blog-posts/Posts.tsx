@@ -10,7 +10,7 @@ async function Posts() {
       {posts?.map((post) => (
         <div
           key={post.id}
-          className="max-w-[540px] w-full h-[517px]  shadow-2xl rounded-3xl"
+          className="max-w-[540px] w-full h-[517px] rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-out"
         >
           <Image
             src={post.imageUrl}

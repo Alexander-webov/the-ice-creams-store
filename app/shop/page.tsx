@@ -7,19 +7,26 @@ import Link from "next/link";
 
 //Images
 import iconStart from "@/public/icons/start.png";
+import SearchItem from "../components/ui/SearchItem";
 
-async function Shop(props: { searchParams: Promise<{ page?: string }> }) {
+async function Shop(props: {
+  searchParams: Promise<{ page?: string; value?: string }>;
+}) {
   const pageSize = 6;
 
   const searchParams = await props.searchParams;
   const pageFromUrl = Number(searchParams.page ?? "1");
-  console.log(searchParams.page);
+  const searchValueFromUrl = searchParams.value ?? "";
 
   const safePage =
     Number.isFinite(pageFromUrl) && pageFromUrl > 0 ? pageFromUrl : 1;
 
   const pageIndex = safePage - 1;
-  const productsPlusOne = await getAllProducts(pageIndex, pageSize + 1);
+  const productsPlusOne = await getAllProducts(
+    pageIndex,
+    pageSize + 1,
+    searchValueFromUrl,
+  );
 
   const hasNext = productsPlusOne.length > pageSize;
 
@@ -33,21 +40,15 @@ async function Shop(props: { searchParams: Promise<{ page?: string }> }) {
     <main>
       <TitleSection titlePage="Shop" />
       <Container>
-        <div className="my-20">
-          <form action="">
-            <input
-              type="text"
-              className="border border-gray-500 w-full rounded-2xl py-5 px-10"
-              placeholder="Search"
-            />
-          </form>
+        <div className="my-20  max-w-[900px] w-full mx-auto">
+          <SearchItem />
 
-          <ul className="flex flex-wrap mt-20 gap-10 justify-center max-w-[900px] w-full mx-auto ">
+          <ul className="flex flex-wrap mt-20 gap-10 justify-center  ">
             {products.map((item) => {
               return (
                 <li
                   key={item.id}
-                  className="max-w-[250px] shadow-2xl rounded-2xl bg-white p-4 flex flex-col justify-between min-h-[440px]  h-full"
+                  className="max-w-[250px] rounded-2xl bg-white p-4 flex flex-col justify-between min-h-[480px]  h-full shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-out"
                 >
                   <div className="flex justify-center">
                     <Image

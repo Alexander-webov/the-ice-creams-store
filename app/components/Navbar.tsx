@@ -19,29 +19,34 @@ function Navbar() {
           <MainLogoLink />
           <ul className="flex justify-between items-center gap-x-14 ">
             <li>
-              <Link href="/">Home</Link>
+              <Link className="hover:text-[#F83D8E]" href="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link href="/shop">Shop</Link>
+              <Link className="hover:text-[#F83D8E]" href="/shop">
+                Shop
+              </Link>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link className="hover:text-[#F83D8E]" href="/blog">
+                Blog
+              </Link>
             </li>
             <li>
-              <Link href="/">About</Link>
-            </li>
-            <li>
-              <Link href="/faq">Faq</Link>
+              <Link className="hover:text-[#F83D8E]" href="/faq">
+                Faq
+              </Link>
             </li>
             <ul className="flex gap-x-7 ">
-              <li>
+              {/*               <li>
                 <Image
                   src={iconSearch}
                   alt="-"
                   width={20}
                   className="cursor-pointer"
                 />
-              </li>
+              </li> */}
               <li className="relative">
                 <Link href="/cart">
                   <Image src={iconCart} alt="-" width={20} />

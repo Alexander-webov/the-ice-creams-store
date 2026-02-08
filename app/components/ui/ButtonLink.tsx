@@ -6,7 +6,7 @@ function ButtonLink({ text, link }: { text: string; link: string }) {
   return (
     <Link
       href={link}
-      className="inline-block bg-[#F83D8E] shadow-2xl  text-white py-3 px-8 font-bold rounded-4xl "
+      className="inline-block bg-[#F83D8E] shadow-xl  text-white py-3 px-8 font-bold rounded-4xl hover:shadow-2xl"
     >
       <div className="flex items-center">
         {text}
