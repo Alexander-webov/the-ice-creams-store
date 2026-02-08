@@ -2,10 +2,11 @@ import { prisma } from "@/app/lib/prisma";
 import { redirect } from "next/navigation";
 
 //Products
-export async function getAllProducts() {
+export async function getAllProducts(page: number, pageSize: number) {
   return prisma.product.findMany({
     orderBy: { createdAt: "desc" },
-    take: 12,
+    skip: page * pageSize,
+    take: pageSize,
   });
 }
 

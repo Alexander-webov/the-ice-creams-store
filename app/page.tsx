@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Image from "next/image";
 import { Berkshire_Swash } from "next/font/google";
 import { getFavoriteProducts } from "./utils/actions";

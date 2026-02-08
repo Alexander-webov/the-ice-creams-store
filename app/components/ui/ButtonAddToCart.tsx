@@ -9,7 +9,6 @@ function ButtonAddToCart({
 }: {
   item: { id: string; title: string; price: number; imageUrl: string };
 }) {
-  //Просто берем нашу функцию и внедряем в кнопку
   const addToCart = useCart((state) => state.add);
   return (
     <button
