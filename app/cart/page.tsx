@@ -10,6 +10,7 @@ import ButtonLink from "../components/ui/ButtonLink";
 
 function Cart() {
   const items = useCart((s) => s.items);
+  const removeItemFromCart = useCart((state) => state.remove);
   const totalItems = items.reduce((acc, item) => acc + item.qty, 0);
   const subTotalPrice = items.reduce(
     (acc, item) => item.price * item.qty + acc,
@@ -61,13 +62,18 @@ function Cart() {
                     ${item.price * item.qty}
                   </div>
                   <div className="max-w-[37px] w-full">
-                    <Image
-                      src={iconDelete}
-                      alt="delete"
-                      width={37}
-                      height={37}
-                      className="w-[37px] h-[37px]"
-                    />
+                    <button
+                      className="cursor-pointer"
+                      onClick={() => removeItemFromCart(item.id)}
+                    >
+                      <Image
+                        src={iconDelete}
+                        alt="delete"
+                        width={37}
+                        height={37}
+                        className="w-[37px] h-[37px]"
+                      />
+                    </button>
                   </div>
                 </div>
               ))
